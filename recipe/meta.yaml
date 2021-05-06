@@ -1,5 +1,5 @@
 {% set name = "pytest-celery" %}
-{% set version = "0.0.0a1" %}
+{% set version = "0.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pytest-celery-{{ version }}.tar.gz
-  sha256: 3e0e0817c2d3f2870dafebd915bf13100fc12920b5d42dfe5fdc35844fe42e62
+  sha256: cfd060fc32676afa1e4f51b2938f903f7f75d952186b8c6cf631628c4088f406
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -31,7 +31,7 @@ test:
   requires:
     - pip
     - celery >=4.4.0
-    
+
 about:
   home: https://github.com/graingert/pytest-celery
   summary: pytest-celery a shim pytest plugin to enable celery.contrib.pytest
