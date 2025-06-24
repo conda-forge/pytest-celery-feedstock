@@ -3,11 +3,11 @@ About pytest-celery-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pytest-celery-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/graingert/pytest-celery
+Home: https://github.com/celery/pytest-celery
 
 Package license: BSD-3-Clause
 
-Summary: pytest-celery a shim pytest plugin to enable celery.contrib.pytest
+Summary: Pytest plugin for Celery
 
 Current build status
 ====================
