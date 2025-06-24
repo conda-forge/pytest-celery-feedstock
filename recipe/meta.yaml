@@ -1,26 +1,42 @@
 {% set name = "pytest-celery" %}
-{% set version = "1.0.0" %}
+{% set version = "1.2.0" %}
+{% set python_min = "3.9" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 17a066b1554d4fa8797d4928e8b8cda1bfb441dae4688ca29fdbde28ffa49ff7
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pytest_celery-{{ version }}.tar.gz
+  sha256: de605eca1b0134c136910c8ed161cc3996b0c8aaafd29170878a396eed81b5b1
 
 build:
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - pip
-    - flit
-    - python
+    - poetry-core >=1.8.1
+    - python {{ python_min }}
   run:
+    - celery >=4.4.0
+    - debugpy >=1.8.12,<2.0.0
+    - docker-py >=7.1.0,<8.0.0
+    - kombu
+    - psutil >=7.0.0
     - pytest
+    - pytest-docker-tools >=3.1.3
+    - python >={{ python_min }},<4.0
+    - setuptools >=75.8.0
+    - tenacity >=9.0.0
+  run_constrained:
+    - boto3 *
+    - botocore *
+    - python-memcached *
+    - redis-py *
+    - urllib3 >=1.26.16,<2.0
 
 test:
   imports:
@@ -30,11 +46,11 @@ test:
     - "pytest --fixtures | grep 'plugins: celery'"
   requires:
     - pip
-    - celery >=4.4.0
+    - python {{ python_min }}
 
 about:
-  home: https://github.com/graingert/pytest-celery
-  summary: pytest-celery a shim pytest plugin to enable celery.contrib.pytest
+  home: https://github.com/celery/pytest-celery
+  summary: Pytest plugin for Celery
   license: BSD-3-Clause
   license_file: LICENSE
 
