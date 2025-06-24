@@ -1,6 +1,5 @@
 {% set name = "pytest-celery" %}
 {% set version = "1.2.0" %}
-{% set python_min = "3.9" %}
 
 package:
   name: {{ name|lower }}
@@ -11,7 +10,7 @@ source:
   sha256: de605eca1b0134c136910c8ed161cc3996b0c8aaafd29170878a396eed81b5b1
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
