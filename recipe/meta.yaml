@@ -43,8 +43,7 @@ test:
     - pytest_celery
   commands:
     - pip check
-    - pytest --fixtures
-    - "pytest --fixtures | grep 'plugins: celery'"
+    - "pytest --fixtures | grep 'plugins:.* celery'"
   requires:
     - pip
     - python {{ python_min }}
