@@ -1,5 +1,5 @@
 {% set name = "pytest-celery" %}
-{% set version = "1.2.0" %}
+{% set version = "1.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pytest_celery-{{ version }}.tar.gz
-  sha256: de605eca1b0134c136910c8ed161cc3996b0c8aaafd29170878a396eed81b5b1
+  sha256: 7873fb3cf4fbfe9b0dd15d359bdb8bbab4a41c7e48f5b0adb7d36138d3704d52
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
