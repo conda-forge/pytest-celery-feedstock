@@ -36,8 +36,7 @@ requirements:
   run_constraints:
     - boto3 *
     - botocore *
-    - if: not win
-      then: pycurl >=7.43
+    - pycurl >=7.43
     - python-memcached *
     - redis-py *
     - urllib3 >=1.26.16,<2.0
@@ -46,13 +45,12 @@ tests:
   - python:
       imports:
         - pytest_celery
+      pip_check: true
       python_version: ${{ python_min }}.*
   - requirements:
       run:
-        - pip
         - python ${{ python_min }}.*
     script:
-      - pip check
       - pytest --fixtures | grep 'plugins:.* celery'
 
 about:
